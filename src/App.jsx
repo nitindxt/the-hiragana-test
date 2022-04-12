@@ -55,7 +55,7 @@ function App() {
   const [streak, setStreak] = useState(0);
   const [maxStreak, setMaxStreak] = useState(0);
 
-  const [error, setError] = useState(false);
+  const [ansStatus, setAnsStatus] = useState(false);
 
   const setRandomHirigana = () => {
     const randomIndex = Math.floor(Math.random() * hiragana.length);
@@ -72,7 +72,7 @@ function App() {
     if (input.toLocaleLowerCase() === hiragana[currentHirigana].romaji) {
       setStreak(streak + 1);
       setMaxStreak(streak + 1 > maxStreak ? streak + 1 : maxStreak);
-      setError(false);
+      setAnsStatus(true);
 
       localStorage.setItem("streak", streak + 1);
       localStorage.setItem(
@@ -81,9 +81,7 @@ function App() {
       );
     } else {
       setStreak(0);
-      setError(
-        `Wrong! The correct answer for ${hiragana[currentHirigana].hiragana} is ${hiragana[currentHirigana].romaji}.`
-      );
+      setAnsStatus(false);
 
       localStorage.setItem("streak", 0);
     }
@@ -101,19 +99,19 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white text-center">
       <header className="p-6 mb-8">
-        <h1 className="text-5xl font-extrabold uppercase mb-7 font-playfair-display">
+        <h1 className="text-5xl font-extrabold uppercase mb-7 font-playfair-display ">
           The Hiragana Test
         </h1>
         <div className="my-4">
-          <p className="text-xl space-x-5">
-            <span className="text-4xl font-bold">🔥</span>
+          <p className="space-x-2 sm:space-x-5">
+            <span className="text-4xl font-bold ">🔥</span>
             <span>
               Streak : <span className="text-4xl font-bold">{streak}</span>
             </span>{" "}
-            <span className="text-5xl">||</span>{" "}
+            <span className="text-5xl ">||</span>{" "}
             <span>
               MaxStreak :{" "}
-              <span className="text-4xl font-bold">{maxStreak}</span>
+              <span className="text-4xl font-bold ">{maxStreak}</span>
             </span>{" "}
             <span className="text-4xl font-bold">🔥</span>
           </p>
@@ -136,7 +134,11 @@ function App() {
         </form>
       </div>
 
-      {error && <p className="text-red-600">{error}</p>}
+      <p className={ansStatus ? "text-green-500" : "text-red-500"}>
+        {ansStatus
+          ? `Correct! ✅`
+          : `❌ The correct answer for ${hiragana[currentHirigana].hiragana} is ${hiragana[currentHirigana].romaji}.`}
+      </p>
     </div>
   );
 }
