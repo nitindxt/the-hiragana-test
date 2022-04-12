@@ -55,7 +55,7 @@ function App() {
   const [streak, setStreak] = useState(0);
   const [maxStreak, setMaxStreak] = useState(0);
 
-  const [ansStatus, setAnsStatus] = useState(false);
+  const [ansStatus, setAnsStatus] = useState();
 
   const setRandomHirigana = () => {
     const randomIndex = Math.floor(Math.random() * hiragana.length);
@@ -134,11 +134,13 @@ function App() {
         </form>
       </div>
 
-      <p className={ansStatus ? "text-green-500" : "text-red-500"}>
-        {ansStatus
-          ? `Correct! ✅`
-          : `❌ The correct answer for ${hiragana[currentHirigana].hiragana} is ${hiragana[currentHirigana].romaji}.`}
-      </p>
+      {ansStatus != null && (
+        <p className={ansStatus ? "text-green-500" : "text-red-500"}>
+          {ansStatus
+            ? `Correct! ✅`
+            : `❌ The correct answer for ${hiragana[currentHirigana].hiragana} is ${hiragana[currentHirigana].romaji}.`}
+        </p>
+      )}
     </div>
   );
 }
