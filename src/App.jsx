@@ -106,16 +106,9 @@ function App() {
         </h1>
         <div className="my-4">
           <p className="space-x-2 sm:space-x-5">
-            {/* <span className="text-4xl font-bold ">🔥</span> */}
-            <span>
-              Streak : <span className="text-4xl font-bold">{streak}</span>
-            </span>{" "}
-            <span className="text-5xl ">⚡</span>{" "}
-            <span>
-              MaxStreak :{" "}
-              <span className="text-4xl font-bold ">{maxStreak}</span>
-            </span>{" "}
-            {/* <span className="text-4xl font-bold">🔥</span> */}
+            Streak : <span className="text-4xl font-bold">{streak}</span>{" "}
+            <span className="text-5xl ">⚡</span> MaxStreak :{" "}
+            <span className="text-4xl font-bold ">{maxStreak}</span>{" "}
           </p>
         </div>
       </header>
