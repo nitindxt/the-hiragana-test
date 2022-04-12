@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "playfair-display": ["Fira Code", "monospace"],
+        "playfair-display": ["Raleway", "sans-serif"],
       },
     },
   },
