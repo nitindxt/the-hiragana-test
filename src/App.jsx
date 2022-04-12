@@ -99,15 +99,23 @@ function App() {
   }, []); //[] means run once
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white text-center">
+    <div className="min-h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white text-center">
       <header className="p-6 mb-8">
-        <h1 className="text-5xl font-bold uppercase mb-7">The Hiragana Test</h1>
+        <h1 className="text-5xl font-extrabold uppercase mb-7 font-playfair-display">
+          The Hiragana Test
+        </h1>
         <div className="my-4">
           <p className="text-xl space-x-5">
-            🔥 <span className="text-2xl font-bold ">Streak: {streak}</span>{" "}
+            <span className="text-4xl font-bold">🔥</span>
+            <span>
+              Streak : <span className="text-4xl font-bold">{streak}</span>
+            </span>{" "}
             <span className="text-5xl">||</span>{" "}
-            <span className="text-2xl font-bold ">MaxStreak: {maxStreak}</span>{" "}
-            🔥
+            <span>
+              MaxStreak :{" "}
+              <span className="text-4xl font-bold">{maxStreak}</span>
+            </span>{" "}
+            <span className="text-4xl font-bold">🔥</span>
           </p>
         </div>
       </header>
